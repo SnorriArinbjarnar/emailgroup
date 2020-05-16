@@ -6,3 +6,5 @@ include
 .DS_Store
 .pyc
 .vscode/*
+__pycache__/
+db.sqlite3
