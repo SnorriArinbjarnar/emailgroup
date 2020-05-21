@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
     {% include "emailwizard/_group.html" with group=emailgroup only %}
-    
+    <hr>
+    <h4>Companies added:</h4>
+    {% for company in emailgroup.email_set.all %}
+        <p>{{company.company}}:{{company.email}}</p>
+    {% empty %}
+        No companies added yet
+    {% endfor %}
 {% endblock %}
