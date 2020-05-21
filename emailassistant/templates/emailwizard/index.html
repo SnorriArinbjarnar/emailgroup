@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for group in emailgroups %}
+       {% include "emailwizard/_group.html" with group=group only %}  
+        {% empty %}
+            <p>No emailgroups added...</p>
+    {% endfor %}
+{% endblock %}
