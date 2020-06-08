@@ -2,6 +2,9 @@ from django.test import TestCase
 from EmailWizard.models import EmailGroup, Email
 from django.urls import reverse
 
+
+#TODO assertTemplateUsed,  assert redirect
+
 class HomeViewTestCase(TestCase):
     """ Test wether email groups show up on page """
     def test_no_emailgroup(self):

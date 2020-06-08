@@ -1,8 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
+    <div class="card-deck">
+   
     {% for group in emailgroups %}
-       {% include "emailwizard/_group.html" with group=group only %}  
+      <article class="card">
+    <div class="card-body">
+       {% include "emailwizard/_group.html" with group=group only %}   
+    </div>
+    
+    </article>
         {% empty %}
             <p>No emailgroups added...</p>
+   
     {% endfor %}
+    
+     
 {% endblock %}

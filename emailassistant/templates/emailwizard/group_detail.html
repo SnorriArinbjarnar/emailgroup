@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
+ <article class="card">
+    <div class="card-body">
     {% include "emailwizard/_group.html" with group=emailgroup only %}
     <hr>
     <h4>Companies added:</h4>
@@ -8,4 +10,6 @@
     {% empty %}
         No companies added yet
     {% endfor %}
+    </div>
+    </article>
 {% endblock %}
