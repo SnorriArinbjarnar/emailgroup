@@ -1,11 +1,19 @@
 
-    <h2 class="card-title"><a href="{{ group.get_absolute_url }}">{{group.title}}</a></h2>
-    <div class="card-footer">
-        <small class="text-muted">
-             <time>{{group.updated_at|date}}</time>
-        </small>
+    {% if site == "list" %}
+        <h2 class="card-title"><a href="{{ group.get_absolute_url }}">{{group.title}}</a></h2>
+    {% else %}
+        <div class="row">
+            <div class="col-6">
+                <h2 class="card-title">{{group.title}}</h2>
+            </div>
+            <div class="col-6 p-2 d-flex justify-content-end">
+                <a href="#" class="btn btn-success mr-1">Add new Company</a>
+                <a href="#" class="btn btn-danger">Delete Group</a>
+            </div>
+        </div>
         
-    </div>
+    {% endif %}
+    
 
 
      

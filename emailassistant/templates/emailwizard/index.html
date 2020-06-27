@@ -1,18 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="card-deck">
-   
-    {% for group in emailgroups %}
-      <article class="card">
-    <div class="card-body">
-       {% include "emailwizard/_group.html" with group=group only %}   
-    </div>
-    
-    </article>
-        {% empty %}
+        {% for group in emailgroups %}
+            <article class="card">
+                <div class="card-body">
+                    {% include "emailwizard/_group.html" with group=group site="list" only  %}   
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">
+                        <time>{{group.updated_at|date}}</time>
+                    </small>
+                </div>
+                
+            </article>
+          {% empty %}
             <p>No emailgroups added...</p>
-   
-    {% endfor %}
-    
-     
+        {% endfor %}
+    </div>
 {% endblock %}
