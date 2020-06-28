@@ -18,16 +18,13 @@ class GroupDetailView(FormMixin, DetailView):
     template_name = 'emailwizard/group_detail.html'
     form_class = AddCompanyFormTwo
 
-    #def get(self, request, pk):
-        #return request.id
-    # Stay on the same page when successful
     def get_success_url(self):
         return reverse('group_detail', kwargs={'pk': self.object.pk})
 
-    # 
     #def get_context_data(self, **kwargs):
-        #context =  super(GroupDetailView, self).get_context_data(**kwargs)
-        #context['form'] = AddCompanyForm(initial={'post' : self.object})
+        #context = super().get_context_data(**kwargs) 
+        #group = EmailGroup.objects.get(pk = self.object.pk)
+        #context['row'] = group.email_set.all().count()
         #return context
 
     def post(self, request, *args, **kwargs):
@@ -39,10 +36,9 @@ class GroupDetailView(FormMixin, DetailView):
             return self.form_invalid(form)
     
     def form_valid(self, form):
-        #form.save()
-        #return super(GroupDetailView, self).form_valid(form)
-        #form.save()
         instance = form.save(commit=False)
+        emailgroup = EmailGroup.objects.get(pk = self.object.pk)
+        instance.emailgroup = emailgroup
         instance.save()
         return super().form_valid(form)
     

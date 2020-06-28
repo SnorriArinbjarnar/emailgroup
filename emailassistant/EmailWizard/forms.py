@@ -9,13 +9,16 @@ class AddCompanyForm(forms.Form):
 class AddCompanyFormTwo(forms.ModelForm):
     class Meta:
         model = Email 
-        fields = ['company', 'email', 'emailgroup']
+        #fields = ['company', 'email', 'emailgroup']
+        fields = ['company', 'email']
 
         def __init__(self, *args, **kwargs):
             self.emailgroup = kwargs.pop('pk')
             #
-            super(AddCompanyFormTwo, self).__init__(*args, **kwargs)
-            self.fields['emailgroup'] = self.emailgroup
+            #super(AddCompanyFormTwo, self).__init__(*args, **kwargs)
+            #self.fields['emailgroup'] = self.emailgroup
+            #self.emailgroup = self.kwargs['pk']
+            #pass
 
         def save(self, commit=True):
             instance = super(AddCompanyFormTwo, self).save(commit=False)
