@@ -18,7 +18,7 @@
             
             {% for company in emailgroup.email_set.all %}
             <tr>
-                <th scope="row">{{row}}</th>
+                <th scope="row">{{forloop.counter}}</th>
                 <td>{{company.company}}</td>
                 <td>{{company.email}}</td>
                 <td class="d-flex justify-content-end">
